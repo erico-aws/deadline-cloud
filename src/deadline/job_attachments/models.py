@@ -493,3 +493,10 @@ class UploadManifestInfo:
     output_manifest_path: str
     output_manifest_hash: str
     source_path: Optional[str] = None
+
+    def to_dict(self) -> dict[str, Any]:
+        result: dict[str, Any] = {"output_manifest_path": self.output_manifest_path, "output_manifest_hash": self.output_manifest_hash}
+        if self.source_path:
+            result["source_path"] = self.source_path
+
+        return result
